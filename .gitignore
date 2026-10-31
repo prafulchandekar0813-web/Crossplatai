@@ -1,0 +1,6 @@
+.env
+data/
+workspace_storage/
+config.json
+__pycache__/
+*.pyc

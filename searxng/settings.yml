@@ -1,0 +1,10 @@
+# Minimal private SearXNG for Agent Workbench: JSON output on, no bot limiter (only your server talks to it).
+use_default_settings: true
+server:
+  limiter: false
+  public_instance: false
+  # secret_key comes from the SEARXNG_SECRET environment variable
+search:
+  formats:
+    - html
+    - json

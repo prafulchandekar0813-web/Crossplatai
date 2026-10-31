@@ -1,0 +1,9 @@
+fastapi>=0.110
+uvicorn>=0.29
+httpx>=0.27
+pypdf>=4.0
+# Optional: indexing DOCX / PPTX / XLSX and better PDF extraction in the knowledge base
+# docling>=2.0
+# Tests
+# pytest>=8
+# pytest-asyncio>=0.23
