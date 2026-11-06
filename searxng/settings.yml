@@ -4,6 +4,8 @@ server:
   limiter: false
   public_instance: false
   # secret_key comes from the SEARXNG_SECRET environment variable
+general:
+  instance_name: "PrivacySearch"
 search:
   formats:
     - html
