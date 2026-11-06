@@ -9,13 +9,10 @@ general:
   debug: false                  # Always set to false in production for security
   enable_metrics: true
 search:
+  safe_search: 2
   formats:
     - html
     - json
 engines:
-  - name: google
-    disabled: false
-    weight: 1.5                 # Prioritizes Google results higher in aggregate lists
-    
   - name: bing
     disabled: true
