@@ -6,7 +6,16 @@ server:
   # secret_key comes from the SEARXNG_SECRET environment variable
 general:
   instance_name: "PrivacySearch"
+  debug: false                  # Always set to false in production for security
+  enable_metrics: true
 search:
   formats:
     - html
     - json
+engines:
+  - name: google
+    disabled: false
+    weight: 1.5                 # Prioritizes Google results higher in aggregate lists
+    
+  - name: bing
+    disabled: true
