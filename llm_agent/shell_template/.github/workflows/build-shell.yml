@@ -1,0 +1,73 @@
+# Builds one branded shell app (APK and/or Windows EXE). Started by the workbench server through workflow_dispatch.
+# Inputs are validated by the server AND passed to scripts only through environment variables, never pasted into commands.
+name: Build shell app
+run-name: "build ${{ inputs.app_id }} ${{ inputs.request_id }}"
+on:
+  workflow_dispatch:
+    inputs:
+      app_id: { description: "App ID", required: true, type: string }
+      api_base: { description: "Workbench address (https)", required: true, type: string }
+      app_name: { description: "Display name", required: true, type: string }
+      package_id: { description: "Package id, e.g. com.shop.app", required: true, type: string }
+      accent: { description: "Colour", required: false, type: string, default: "#2563eb" }
+      platforms: { description: "apk, exe or apk,exe", required: true, type: string }
+      request_id: { description: "Request id", required: true, type: string }
+
+env:
+  APP_ID: ${{ inputs.app_id }}
+  API_BASE: ${{ inputs.api_base }}
+  APP_NAME: ${{ inputs.app_name }}
+  PACKAGE_ID: ${{ inputs.package_id }}
+  ACCENT: ${{ inputs.accent }}
+
+jobs:
+  android:
+    if: contains(inputs.platforms, 'apk')
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: "17" }
+      - uses: subosito/flutter-action@v2
+        with: { flutter-version: "3.27.4", channel: stable, cache: true }
+      - name: Prepare project
+        run: python3 .github/scripts/prepare.py
+      - name: Build APK
+        working-directory: build_app
+        run: |
+          flutter pub get
+          # the webview plugin still names an old proguard file that newer Android build tools refuse; use the optimised one
+          find "$HOME/.pub-cache" -path "*flutter_inappwebview_android*/android/build.gradle" -print0 | xargs -0 -r sed -i "s/proguard-android\.txt/proguard-android-optimize.txt/"
+          dart run flutter_launcher_icons
+          flutter build apk --release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: apk
+          path: build_app/build/app/outputs/flutter-apk/app-release.apk
+          retention-days: 7
+
+  windows:
+    if: contains(inputs.platforms, 'exe')
+    runs-on: windows-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with: { flutter-version: "3.27.4", channel: stable, cache: true }
+      - name: Prepare project
+        run: python .github/scripts/prepare.py
+      - name: Build EXE
+        working-directory: build_app
+        run: |
+          flutter pub get
+          dart run flutter_launcher_icons
+          flutter build windows --release
+      - name: Zip
+        shell: pwsh
+        run: Compress-Archive -Path build_app/build/windows/x64/runner/Release/* -DestinationPath app-windows.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: exe
+          path: app-windows.zip
+          retention-days: 7
