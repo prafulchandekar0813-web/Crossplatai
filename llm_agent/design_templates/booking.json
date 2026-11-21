@@ -1,0 +1,160 @@
+{
+ "name": "Services and booking",
+ "description": "For salons, clinics and trainers: your services, prices and a call-to-book button.",
+ "design": {
+  "theme": {
+   "accent": "#7c3aed",
+   "bg": "#ffffff",
+   "text": "#1e1b4b",
+   "surface": "#f1e9ff",
+   "font": "system",
+   "radius": "soft"
+  },
+  "nav": "tabs",
+  "pages": [
+   {
+    "id": "home",
+    "title": "Home",
+    "blocks": [
+     {
+      "id": "b75",
+      "type": "image",
+      "src": "@logo",
+      "alt": "",
+      "height": 100,
+      "fit": "contain",
+      "radius": 16
+     },
+     {
+      "id": "b76",
+      "type": "heading",
+      "text": "Book your visit",
+      "size": "l",
+      "align": "center",
+      "color": ""
+     },
+     {
+      "id": "b77",
+      "type": "text",
+      "text": "Friendly service, by appointment.",
+      "size": "m",
+      "align": "center",
+      "color": ""
+     },
+     {
+      "id": "b78",
+      "type": "button",
+      "label": "Book now",
+      "action": {
+       "type": "page",
+       "target": "book"
+      },
+      "style": "solid",
+      "icon": "calendar",
+      "full": true,
+      "align": "center"
+     },
+     {
+      "id": "b79",
+      "type": "button",
+      "label": "Our services",
+      "action": {
+       "type": "page",
+       "target": "services"
+      },
+      "style": "outline",
+      "icon": "scissors",
+      "full": true,
+      "align": "center"
+     }
+    ]
+   },
+   {
+    "id": "services",
+    "title": "Services",
+    "blocks": [
+     {
+      "id": "b80",
+      "type": "heading",
+      "text": "Services",
+      "size": "l",
+      "align": "left",
+      "color": ""
+     },
+     {
+      "id": "boo_items",
+      "type": "items",
+      "collection": "services",
+      "layout": "list",
+      "columns": 2,
+      "show_image": true,
+      "show_details": true,
+      "limit": 24,
+      "detail": true,
+      "order": true,
+      "order_label": "Book this",
+      "empty": "Nothing here yet."
+     }
+    ]
+   },
+   {
+    "id": "book",
+    "title": "Book",
+    "blocks": [
+     {
+      "id": "b90",
+      "type": "heading",
+      "text": "Make a booking",
+      "size": "l",
+      "align": "left",
+      "color": ""
+     },
+     {
+      "id": "b91",
+      "type": "text",
+      "text": "Call or message us with the day and time you prefer.",
+      "size": "m",
+      "align": "left",
+      "color": ""
+     },
+     {
+      "id": "b92",
+      "type": "button",
+      "label": "Call to book",
+      "action": {
+       "type": "link",
+       "url": "tel:+10000000000"
+      },
+      "style": "solid",
+      "icon": "phone",
+      "full": true,
+      "align": "center"
+     },
+     {
+      "id": "b93",
+      "type": "button",
+      "label": "Message us",
+      "action": {
+       "type": "link",
+       "url": "mailto:hello@example.com"
+      },
+      "style": "outline",
+      "icon": "chat",
+      "full": true,
+      "align": "center"
+     },
+     {
+      "id": "frm",
+      "type": "form",
+      "title": "Send us a message",
+      "fields": "Your name*\nPhone*\nMessage",
+      "big_last": true,
+      "button": "Send",
+      "collection": "messages",
+      "success": "Thank you! We will get back to you."
+     }
+    ]
+   }
+  ]
+ }
+}

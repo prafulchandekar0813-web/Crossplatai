@@ -1,0 +1,170 @@
+{
+ "name": "Portfolio",
+ "description": "A clean personal site: about you, your work and how to reach you.",
+ "design": {
+  "theme": {
+   "accent": "#0f766e",
+   "bg": "#ffffff",
+   "text": "#0f172a",
+   "surface": "#dcf3f0",
+   "font": "rounded",
+   "radius": "soft"
+  },
+  "nav": "tabs",
+  "pages": [
+   {
+    "id": "about",
+    "title": "About",
+    "blocks": [
+     {
+      "id": "b55",
+      "type": "spacer",
+      "height": 10
+     },
+     {
+      "id": "b56",
+      "type": "shape",
+      "shape": "circle",
+      "color": "#0f766e",
+      "height": 90,
+      "width": 28,
+      "align": "center"
+     },
+     {
+      "id": "b57",
+      "type": "heading",
+      "text": "Your name",
+      "size": "l",
+      "align": "center",
+      "color": ""
+     },
+     {
+      "id": "b58",
+      "type": "text",
+      "text": "Designer, maker, builder. Write one line about what you do.",
+      "size": "m",
+      "align": "center",
+      "color": ""
+     },
+     {
+      "id": "b59",
+      "type": "spacer",
+      "height": 8
+     },
+     {
+      "id": "b60",
+      "type": "button",
+      "label": "See my work",
+      "action": {
+       "type": "page",
+       "target": "work"
+      },
+      "style": "solid",
+      "icon": "image",
+      "full": true,
+      "align": "center"
+     },
+     {
+      "id": "b61",
+      "type": "button",
+      "label": "Hire me",
+      "action": {
+       "type": "page",
+       "target": "contact"
+      },
+      "style": "outline",
+      "icon": "briefcase",
+      "full": true,
+      "align": "center"
+     }
+    ]
+   },
+   {
+    "id": "work",
+    "title": "Work",
+    "blocks": [
+     {
+      "id": "b62",
+      "type": "heading",
+      "text": "Selected work",
+      "size": "l",
+      "align": "left",
+      "color": ""
+     },
+     {
+      "id": "por_items",
+      "type": "items",
+      "collection": "work",
+      "layout": "grid",
+      "columns": 2,
+      "show_image": true,
+      "show_details": true,
+      "limit": 24,
+      "detail": true,
+      "order": true,
+      "order_label": "Ask about this",
+      "empty": "Nothing here yet."
+     }
+    ]
+   },
+   {
+    "id": "contact",
+    "title": "Contact",
+    "blocks": [
+     {
+      "id": "b71",
+      "type": "heading",
+      "text": "Let's talk",
+      "size": "l",
+      "align": "left",
+      "color": ""
+     },
+     {
+      "id": "b72",
+      "type": "text",
+      "text": "Tell me about your project.",
+      "size": "m",
+      "align": "left",
+      "color": ""
+     },
+     {
+      "id": "b73",
+      "type": "button",
+      "label": "E-mail me",
+      "action": {
+       "type": "link",
+       "url": "mailto:you@example.com"
+      },
+      "style": "solid",
+      "icon": "mail",
+      "full": true,
+      "align": "center"
+     },
+     {
+      "id": "b74",
+      "type": "button",
+      "label": "Call",
+      "action": {
+       "type": "link",
+       "url": "tel:+10000000000"
+      },
+      "style": "outline",
+      "icon": "phone",
+      "full": true,
+      "align": "center"
+     },
+     {
+      "id": "frm",
+      "type": "form",
+      "title": "Send us a message",
+      "fields": "Your name*\nPhone*\nMessage",
+      "big_last": true,
+      "button": "Send",
+      "collection": "messages",
+      "success": "Thank you! We will get back to you."
+     }
+    ]
+   }
+  ]
+ }
+}

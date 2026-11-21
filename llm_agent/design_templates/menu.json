@@ -1,0 +1,171 @@
+{
+ "name": "Restaurant menu",
+ "description": "A warm menu app with specials, the full menu and opening hours.",
+ "design": {
+  "theme": {
+   "accent": "#c2410c",
+   "bg": "#fffaf5",
+   "text": "#3b1f0f",
+   "surface": "#ffeedd",
+   "font": "serif",
+   "radius": "soft"
+  },
+  "nav": "tabs",
+  "pages": [
+   {
+    "id": "home",
+    "title": "Home",
+    "blocks": [
+     {
+      "id": "b27",
+      "type": "spacer",
+      "height": 8
+     },
+     {
+      "id": "b28",
+      "type": "image",
+      "src": "@logo",
+      "alt": "",
+      "height": 110,
+      "fit": "contain",
+      "radius": 16
+     },
+     {
+      "id": "b29",
+      "type": "heading",
+      "text": "Fresh food, made daily",
+      "size": "l",
+      "align": "center",
+      "color": ""
+     },
+     {
+      "id": "b30",
+      "type": "text",
+      "text": "Open every day. Dine in or take away.",
+      "size": "m",
+      "align": "center",
+      "color": ""
+     },
+     {
+      "id": "b31",
+      "type": "button",
+      "label": "View the menu",
+      "action": {
+       "type": "page",
+       "target": "menu"
+      },
+      "style": "solid",
+      "icon": "utensils",
+      "full": true,
+      "align": "center"
+     },
+     {
+      "id": "b32",
+      "type": "spacer",
+      "height": 8
+     },
+     {
+      "id": "b35",
+      "type": "group",
+      "direction": "column",
+      "gap": 10,
+      "pad": 14,
+      "bg": "#ffedd5",
+      "radius": 14,
+      "align": "stretch",
+      "card": false,
+      "sizing": "equal",
+      "wrap": true,
+      "justify": "start",
+      "children": [
+       {
+        "id": "b33",
+        "type": "heading",
+        "text": "Today's special",
+        "size": "m",
+        "align": "left",
+        "color": ""
+       },
+       {
+        "id": "b34",
+        "type": "text",
+        "text": "Ask your server about the chef's special.",
+        "size": "s",
+        "align": "left",
+        "color": ""
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "menu",
+    "title": "Menu",
+    "blocks": [
+     {
+      "id": "b36",
+      "type": "heading",
+      "text": "Our menu",
+      "size": "m",
+      "align": "left",
+      "color": ""
+     },
+     {
+      "id": "men_items",
+      "type": "items",
+      "collection": "menu",
+      "layout": "list",
+      "columns": 2,
+      "show_image": true,
+      "show_details": true,
+      "limit": 24,
+      "detail": true,
+      "order": true,
+      "order_label": "Order this",
+      "empty": "Nothing here yet."
+     }
+    ]
+   },
+   {
+    "id": "hours",
+    "title": "Visit",
+    "blocks": [
+     {
+      "id": "b51",
+      "type": "heading",
+      "text": "Opening hours",
+      "size": "l",
+      "align": "left",
+      "color": ""
+     },
+     {
+      "id": "b52",
+      "type": "text",
+      "text": "Monday to Friday: 11:00 to 22:00\nSaturday and Sunday: 10:00 to 23:00",
+      "size": "m",
+      "align": "left",
+      "color": ""
+     },
+     {
+      "id": "b53",
+      "type": "divider",
+      "color": ""
+     },
+     {
+      "id": "b54",
+      "type": "button",
+      "label": "Call to book a table",
+      "action": {
+       "type": "link",
+       "url": "tel:+10000000000"
+      },
+      "style": "solid",
+      "icon": "phone",
+      "full": true,
+      "align": "center"
+     }
+    ]
+   }
+  ]
+ }
+}

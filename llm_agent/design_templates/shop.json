@@ -1,0 +1,207 @@
+{
+ "name": "Shop",
+ "description": "A storefront with a welcome page, a products page and a contact page.",
+ "design": {
+  "theme": {
+   "accent": "#2f5bea",
+   "bg": "#ffffff",
+   "text": "#14213d",
+   "surface": "#eef2ff",
+   "font": "system",
+   "radius": "soft"
+  },
+  "nav": "tabs",
+  "pages": [
+   {
+    "id": "home",
+    "title": "Home",
+    "blocks": [
+     {
+      "id": "b1",
+      "type": "image",
+      "src": "@logo",
+      "alt": "",
+      "height": 120,
+      "fit": "contain",
+      "radius": 16
+     },
+     {
+      "id": "b2",
+      "type": "heading",
+      "text": "Welcome to our shop",
+      "size": "l",
+      "align": "center",
+      "color": ""
+     },
+     {
+      "id": "b3",
+      "type": "text",
+      "text": "Fresh arrivals every week. Browse the products and order in a few taps.",
+      "size": "m",
+      "align": "center",
+      "color": ""
+     },
+     {
+      "id": "b4",
+      "type": "spacer",
+      "height": 8
+     },
+     {
+      "id": "b5",
+      "type": "button",
+      "label": "See products",
+      "action": {
+       "type": "page",
+       "target": "products"
+      },
+      "style": "solid",
+      "icon": "bag",
+      "full": true,
+      "align": "center"
+     },
+     {
+      "id": "b6",
+      "type": "button",
+      "label": "Contact us",
+      "action": {
+       "type": "page",
+       "target": "contact"
+      },
+      "style": "outline",
+      "icon": "chat",
+      "full": true,
+      "align": "center"
+     },
+     {
+      "id": "b7",
+      "type": "spacer",
+      "height": 12
+     },
+     {
+      "id": "b10",
+      "type": "group",
+      "direction": "column",
+      "gap": 10,
+      "pad": 14,
+      "bg": "#eef2ff",
+      "radius": 14,
+      "align": "stretch",
+      "card": false,
+      "sizing": "equal",
+      "wrap": true,
+      "justify": "start",
+      "children": [
+       {
+        "id": "b8",
+        "type": "heading",
+        "text": "Today's offer",
+        "size": "m",
+        "align": "left",
+        "color": ""
+       },
+       {
+        "id": "b9",
+        "type": "text",
+        "text": "Ask about our weekly deal. Free delivery on your first order.",
+        "size": "s",
+        "align": "left",
+        "color": ""
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "products",
+    "title": "Products",
+    "blocks": [
+     {
+      "id": "b11",
+      "type": "heading",
+      "text": "Products",
+      "size": "l",
+      "align": "left",
+      "color": ""
+     },
+     {
+      "id": "sho_items",
+      "type": "items",
+      "collection": "products",
+      "layout": "grid",
+      "columns": 2,
+      "show_image": true,
+      "show_details": true,
+      "limit": 24,
+      "detail": true,
+      "order": true,
+      "order_label": "Order this",
+      "empty": "Nothing here yet."
+     }
+    ]
+   },
+   {
+    "id": "contact",
+    "title": "Contact",
+    "blocks": [
+     {
+      "id": "b22",
+      "type": "heading",
+      "text": "Get in touch",
+      "size": "l",
+      "align": "left",
+      "color": ""
+     },
+     {
+      "id": "b23",
+      "type": "text",
+      "text": "Tell us what you would like to order and we will reply quickly.",
+      "size": "m",
+      "align": "left",
+      "color": ""
+     },
+     {
+      "id": "b24",
+      "type": "divider",
+      "color": ""
+     },
+     {
+      "id": "b25",
+      "type": "button",
+      "label": "Call us",
+      "action": {
+       "type": "link",
+       "url": "tel:+10000000000"
+      },
+      "style": "solid",
+      "icon": "phone",
+      "full": true,
+      "align": "center"
+     },
+     {
+      "id": "b26",
+      "type": "button",
+      "label": "Send an e-mail",
+      "action": {
+       "type": "link",
+       "url": "mailto:hello@example.com"
+      },
+      "style": "outline",
+      "icon": "mail",
+      "full": true,
+      "align": "center"
+     },
+     {
+      "id": "frm",
+      "type": "form",
+      "title": "Send us a message",
+      "fields": "Your name*\nPhone*\nMessage",
+      "big_last": true,
+      "button": "Send",
+      "collection": "messages",
+      "success": "Thank you! We will get back to you."
+     }
+    ]
+   }
+  ]
+ }
+}
