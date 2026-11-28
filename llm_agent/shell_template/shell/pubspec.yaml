@@ -1,0 +1,27 @@
+name: shell_app
+description: Branded shell that opens an app managed by the workbench.
+publish_to: none
+version: 1.0.0+1
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_inappwebview: ^6.1.5
+  http: ^1.2.0
+  shared_preferences: ^2.2.0
+dev_dependencies:
+  flutter_launcher_icons: ^0.14.1
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/app_config.json
+    - assets/logo.png
+flutter_launcher_icons:
+  android: true
+  ios: false
+  image_path: assets/logo.png
+  windows:
+    generate: true
+    image_path: assets/logo.png
+    icon_size: 256
